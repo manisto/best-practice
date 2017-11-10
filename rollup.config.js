@@ -1,7 +1,7 @@
-import rollupTypescript from 'rollup-plugin-typescript';
-import typescript from 'typescript';
+let rollupTypescript = require('rollup-plugin-typescript');
+let typescript = require('typescript');
 
-export default {
+module.exports = {
     input: 'app/index.ts',
     output: {
         file: 'app/index.js',
