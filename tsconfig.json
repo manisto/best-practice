@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "module": "es2015",
+        "target": "es2015"
+    },
+    "include": [
+        "node_modules/**/*.d.ts"
+    ]
+}

@@ -1,0 +1,14 @@
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="author in $ctrl.authors track by author.id">
+            <td>{{author.id}}</td>
+            <td>{{author.name}}</td>
+        </tr>
+    </tbody>
+</table>
