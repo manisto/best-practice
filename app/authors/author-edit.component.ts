@@ -1,4 +1,5 @@
 import * as models from '../models';
+import template from './author-edit.html';
 
 interface OnSaveAuthorValue {
     author: models.Author;
@@ -20,7 +21,7 @@ class AuthorEditController {
 }
 
 export let AuthorEditComponent: ng.IComponentOptions = {
-    templateUrl: '/app/authors/author-edit.html',
+    template: template,
     controller: AuthorEditController,
     bindings: {
         author: '<',

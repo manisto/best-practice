@@ -1,4 +1,5 @@
 import { AuthorService } from './author.service';
+import template from './authors-container.html';
 
 class AuthorsContainerController {
     static $inject = ['authorService'];
@@ -11,6 +12,6 @@ class AuthorsContainerController {
 }
 
 export let AuthorsContainerComponent: ng.IComponentOptions = {
-    templateUrl: '/app/authors/authors-container.html',
+    template: template,
     controller: AuthorsContainerController
 };

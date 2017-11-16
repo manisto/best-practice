@@ -1,4 +1,5 @@
 import { Author } from './author';
+import template from './author-list.html';
 
 class AuthorListController {
     private authors: Author[];
@@ -10,7 +11,7 @@ class AuthorListController {
 }
 
 export let AuthorListComponent: ng.IComponentOptions = {
-    templateUrl: '/app/authors/author-list.html',
+    template: template,
     controller: AuthorListController,
     bindings: {
         authors: '<'
