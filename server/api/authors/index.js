@@ -1,19 +1,15 @@
 let express = require('express');
-let faker = require('faker');
 
 let router = express.Router();
-let nextId = 1;
-let authors = [];
-
-for (let i = 0; i < 10; i++) {
-    authors.push({
-        id: nextId++,
-        name: faker.name.findName()
-    });
-}
+let { author } = require('../../db/schema');
 
 router.get('/', function(request, response) {
-    response.json(authors);
+    author.findAll()
+    .then((rawAuthors) => {
+        let authors = rawAuthors.map(author => author.dataValues);
+        console.log(authors);
+        response.json(authors);
+    });
 });
 
 router.get('/:id', function(request, response) {
