@@ -9,11 +9,17 @@ for (let i = 0; i < 10; i++) {
     authors.push({ name });
 }
 
-async function run() {
+async function populateDatabase() {
     await database.sync({ force: true });
-    await author.bulkCreate(authors);
-    let allAuthors = await author.findAll();
-    console.log(allAuthors.map(author => author.dataValues));
+    let createdAuthors = await author.bulkCreate(authors);
+    console.log(createdAuthors.map(author => author.dataValues));
+
+    createdAuthors.forEach((author) => {
+        book.create({
+            title: faker.company.catchPhrase(),
+            authorId: author.id
+        });
+    });
 }
 
-run();
+populateDatabase();
