@@ -1,2 +1,2 @@
-module.exports.author = require('./author');
-module.exports.book = require('./book');
+export { author } from './author';
+export { book } from './book';

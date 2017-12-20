@@ -1,12 +1,18 @@
-const Sequelize = require('sequelize');
-const database = require('../database');
-const author = require('./author');
+import * as sequelize from 'sequelize';
+import { database } from '../database';
+import { author } from './author';
 
-const book = database.define('book', {
-    title: Sequelize.STRING,
+export const book = database.define<BookInstance, BookAttributes>('book', {
+    title: sequelize.STRING,
 });
+
+interface BookAttributes {
+    id?: number;
+    title: string;
+    authorId: number;
+}
+
+interface BookInstance extends sequelize.Instance<BookAttributes> {}
 
 book.belongsTo(author);
 author.hasMany(book);
-
-module.exports = book;

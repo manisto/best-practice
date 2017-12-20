@@ -1,26 +1,24 @@
-let express = require('express');
+import * as express from 'express';
+import { author, book } from '../../db/schema';
 
-let router = express.Router();
-let { author, book } = require('../../db/schema');
+export let authorRouter = express.Router();
 
-router.get('/', function(request, response) {
+authorRouter.get('/', function(request, response) {
     author.findAll()
     .then((rawAuthors) => {
-        let authors = rawAuthors.map(author => author.dataValues);
+        let authors = rawAuthors.map(author => author.get());
         response.json(authors);
     });
 });
 
-router.get('/:id', function(request, response) {
+authorRouter.get('/:id', function(request, response) {
     let id = Number(request.params['id']);
 
     author.findById(id)
         .then((rawAuthor) => {
-            response.json(rawAuthor.dataValues);
+            response.json(rawAuthor.get());
         })
         .catch(() => {
             response.status(404).send("Not found!!!11!11");
         });
 });
-
-module.exports = router;

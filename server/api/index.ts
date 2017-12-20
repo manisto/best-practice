@@ -1,8 +1,5 @@
-let express = require('express');
+import * as express from 'express';
+import { authorRouter } from './authors';
 
-let apiRouter = express.Router();
-apiRouter.use('/authors', require('./authors'));
-
-module.exports = apiRouter;
-
-let wat = require('./authors');
+export let apiRouter: express.Router = express.Router();
+apiRouter.use('/authors', authorRouter);

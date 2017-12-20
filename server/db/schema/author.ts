@@ -1,8 +1,13 @@
-const Sequelize = require('sequelize');
-const database = require('../database');
+import * as sequelize from 'sequelize';
+import { database } from '../database';
 
-const author = database.define('author', {
-    name: Sequelize.STRING,
+export const author = database.define<AuthorInstance, AuthorAttributes>('author', {
+    name: sequelize.STRING,
 });
 
-module.exports = author;
+interface AuthorAttributes {
+    id?: number;
+    name: string;
+}
+
+interface AuthorInstance extends sequelize.Instance<AuthorAttributes> {}

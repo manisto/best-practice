@@ -1,9 +1,9 @@
-const Sequelize = require('sequelize');
+import * as sequelize from 'sequelize';
 
-const database = new Sequelize('best-practice', null, null, {
-    operatorsAliases: Sequelize.Op,
+let options: sequelize.Options = {
+    operatorsAliases: sequelize.Op,
     dialect: 'sqlite',
     storage: './best-practice.sqlite'
-});
+};
 
-module.exports = database;
+export const database = new sequelize('best-practice', null, null, options);
