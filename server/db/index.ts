@@ -1,8 +1,8 @@
 import { database } from './database';
-import { author, book } from './schema';
+import { author, AuthorAttributes, book } from './schema';
 import * as faker from 'faker';
 
-let authors = [];
+let authors: AuthorAttributes[] = [];
 
 for (let i = 0; i < 10; i++) {
     let name = faker.name.findName();

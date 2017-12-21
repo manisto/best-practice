@@ -6,7 +6,7 @@ export const book = database.define<BookInstance, BookAttributes>('book', {
     title: sequelize.STRING,
 });
 
-interface BookAttributes {
+export interface BookAttributes {
     id?: number;
     title: string;
     authorId: number;

@@ -5,7 +5,7 @@ export const author = database.define<AuthorInstance, AuthorAttributes>('author'
     name: sequelize.STRING,
 });
 
-interface AuthorAttributes {
+export interface AuthorAttributes {
     id?: number;
     name: string;
 }
