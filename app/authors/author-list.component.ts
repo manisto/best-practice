@@ -1,8 +1,8 @@
-import { Author } from './author';
+import * as models from '../../models';
 import template from './author-list.html';
 
 class AuthorListController {
-    private authors: Author[];
+    private authors: models.AuthorAttributes[];
 
     $onChanges(changes: ng.IOnChangesObject): void {
         if (changes['authors']) {

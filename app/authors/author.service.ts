@@ -1,4 +1,4 @@
-import * as models from '../models';
+import * as models from '../../models';
 
 export class AuthorService {
     static $inject = ['$http'];
@@ -8,11 +8,11 @@ export class AuthorService {
         this.$http = $http;
     }
 
-    listAuthors(): ng.IPromise<models.Author[]> {
-        return this.$http.get<models.Author[]>('/api/authors').then(response => response.data);
+    listAuthors(): ng.IPromise<models.AuthorAttributes[]> {
+        return this.$http.get<models.AuthorAttributes[]>('/api/authors').then(response => response.data);
     }
 
-    getAuthor(id: number): ng.IPromise<models.Author> {
-        return this.$http.get<models.Author>(`/api/authors/${id}`).then(Response => Response.data);
+    getAuthor(id: number): ng.IPromise<models.AuthorAttributes> {
+        return this.$http.get<models.AuthorAttributes>(`/api/authors/${id}`).then(Response => Response.data);
     }
 }

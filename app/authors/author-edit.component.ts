@@ -1,15 +1,15 @@
-import * as models from '../models';
+import * as models from '../../models';
 import template from './author-edit.html';
 
 interface OnSaveAuthorValue {
-    author: models.Author;
+    author: models.AuthorAttributes;
 }
 
 class AuthorEditController {
     static $inject: string[] = [];
 
     /* Bindings start */
-    author: models.Author;
+    author: models.AuthorAttributes;
     onSaveAuthor: (value: OnSaveAuthorValue) => void;
     /* Bindings end */
 

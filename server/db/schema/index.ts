@@ -1,2 +1,2 @@
-export { author, AuthorAttributes } from './author';
-export { book, BookAttributes } from './book';
+export { author } from './author';
+export { book } from './book';

@@ -1,6 +1,4 @@
 node_modules/
-app/**/*.js
-app/**/*.js.map
-server/**/*.js
-server/**/*.js.map
+*/**/*.js
+*/**/*.js.map
 *.sqlite

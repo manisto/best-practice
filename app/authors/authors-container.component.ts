@@ -1,4 +1,5 @@
 import { AuthorService } from './author.service';
+import * as models from '../../models';
 import template from './authors-container.html';
 
 class AuthorsContainerController {
@@ -6,7 +7,7 @@ class AuthorsContainerController {
 
     constructor(private authorService: AuthorService) {}
 
-    saveAuthor(author: any) {
+    saveAuthor(author: models.AuthorAttributes) {
         console.log(author);
     }
 }
