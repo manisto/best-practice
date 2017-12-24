@@ -3,12 +3,19 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th style="width: 1px;">&nbsp;</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="author in $ctrl.authors track by author.id">
             <td>{{author.id}}</td>
             <td>{{author.name}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" ui-sref="authors.edit({ id: author.id })">
+                    <i class="fa fa-pencil fa-fw"></i>
+                    Edit
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>

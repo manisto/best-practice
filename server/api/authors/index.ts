@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { author, book } from '../../db/schema';
+import { author } from '../../db/schema';
 
 export let authorRouter = express.Router();
 

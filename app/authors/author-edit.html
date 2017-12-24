@@ -1,1 +1,8 @@
-<button ng-click="$ctrl.saveAuthor();">Gem</button>
+<form ng-submit="$ctrl.submit();" novalidate="novalidate" class="form form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-3" for="name">Name</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="$ctrl.author.name" id="name" />
+        </div>
+    </div>
+</form>
