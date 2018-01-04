@@ -1,5 +1,5 @@
 import { database } from './database';
-import { author, book } from './schema';
+import { author, book } from './models';
 import * as faker from 'faker';
 import { AuthorAttributes } from '../../models';
 
