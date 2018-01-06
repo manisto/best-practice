@@ -1,6 +1,6 @@
 import * as Sequelize from 'sequelize';
 import { AuthorAttributes } from '../../../models';
-import { Associate } from './index';
+import { Associate } from './Associate';
 
 export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes) => {
     let Author: AuthorModel = sequelize.define<AuthorInstance, AuthorAttributes>('author', {
@@ -16,5 +16,4 @@ export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes) => {
 
 interface AuthorInstance extends Sequelize.Instance<AuthorAttributes> {}
 
-export interface AuthorModel extends Associate<AuthorInstance, AuthorAttributes> {
-}
+export interface AuthorModel extends Associate<AuthorInstance, AuthorAttributes> {}

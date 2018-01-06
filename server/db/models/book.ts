@@ -1,6 +1,6 @@
 import * as Sequelize from 'sequelize';
 import { BookAttributes } from '../../../models';
-import { Associate } from './index';
+import { Associate } from './Associate';
 
 export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes): BookModel => {
     let Book: BookModel = sequelize.define<BookInstance, BookAttributes>('book', {
@@ -16,5 +16,4 @@ export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes): Boo
 
 interface BookInstance extends Sequelize.Instance<BookAttributes> {}
 
-export interface BookModel extends Associate<BookInstance, BookAttributes> {
-}
+export interface BookModel extends Associate<BookInstance, BookAttributes> {}
