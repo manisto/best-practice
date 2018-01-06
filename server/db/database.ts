@@ -1,9 +1,9 @@
-import * as sequelize from 'sequelize';
+import * as Sequelize from 'sequelize';
 
-let options: sequelize.Options = {
-    //operatorsAliases: sequelize.Op,
+let options: Sequelize.Options = {
+    operatorsAliases: false,
     dialect: 'sqlite',
     storage: './best-practice.sqlite'
 };
 
-export const database = new sequelize('best-practice', null, null, options);
+export const sequelize = new Sequelize('best-practice', null, null, options);
