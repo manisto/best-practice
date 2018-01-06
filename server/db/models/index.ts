@@ -1,19 +1,14 @@
 import { sequelize } from '../database';
-import { BookModel } from './book';
 import { AuthorModel } from './author';
-import { ModelMap, ModelKeys } from './Associate';
+import { BookModel } from './book';
 
-let models = {
-    Author: sequelize.import('./author') as AuthorModel,
-    Book: sequelize.import('./book') as BookModel,
-}
+export const Author = sequelize.import('./author') as AuthorModel;
+export const Book = sequelize.import('./book') as BookModel;
 
-Object.keys(models).forEach((modelKey: ModelKeys) => {
-    let model = models[modelKey];
+Object.keys(sequelize.models).forEach((key) => {
+    let model: any = sequelize.models[key];
 
     if (model.associate) {
-        model.associate(models);
+        model.associate();
     }
 });
-
-export = models;
