@@ -1,13 +1,20 @@
-import * as sequelize from 'sequelize';
-import { database } from '../database';
-import { author } from './author';
+import * as Sequelize from 'sequelize';
 import { BookAttributes } from '../../../models';
+import { Associate } from './index';
 
-export const book = database.define<BookInstance, BookAttributes>('book', {
-    title: sequelize.STRING,
-});
+export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes): BookModel => {
+    let Book: BookModel = sequelize.define<BookInstance, BookAttributes>('book', {
+        title: types.STRING,
+    });
 
-interface BookInstance extends sequelize.Instance<BookAttributes> {}
+    Book.associate = (models) => {
+        models.Book.belongsTo(models.Author);
+    }
 
-book.belongsTo(author);
-author.hasMany(book);
+    return Book;
+}
+
+interface BookInstance extends Sequelize.Instance<BookAttributes> {}
+
+export interface BookModel extends Associate<BookInstance, BookAttributes> {
+}

@@ -1,11 +1,20 @@
-import * as sequelize from 'sequelize';
-import { database } from '../database';
+import * as Sequelize from 'sequelize';
 import { AuthorAttributes } from '../../../models';
+import { Associate } from './index';
 
-export const author: AuthorModel = database.define<AuthorInstance, AuthorAttributes>('author', {
-    name: sequelize.STRING,
-});
+export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes) => {
+    let Author: AuthorModel = sequelize.define<AuthorInstance, AuthorAttributes>('author', {
+        name: types.STRING,
+    });
 
-interface AuthorInstance extends sequelize.Instance<AuthorAttributes> {}
+    Author.associate = (models) => {
+        models.Author.hasMany(models.Book);
+    }
 
-export interface AuthorModel extends sequelize.Model<AuthorInstance, AuthorAttributes> {}
+    return Author;
+} 
+
+interface AuthorInstance extends Sequelize.Instance<AuthorAttributes> {}
+
+export interface AuthorModel extends Associate<AuthorInstance, AuthorAttributes> {
+}

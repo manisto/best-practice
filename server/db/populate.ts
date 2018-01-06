@@ -1,5 +1,5 @@
-import { database } from './database';
-import { author, book } from './models';
+import { sequelize } from './database';
+import { Book, Author } from './models';
 import * as faker from 'faker';
 import { AuthorAttributes } from '../../models';
 
@@ -11,11 +11,11 @@ for (let i = 0; i < 10; i++) {
 }
 
 async function populateDatabase() {
-    await database.sync({ force: true });
-    let createdAuthors = await author.bulkCreate(authors);
+    await sequelize.sync({ force: true });
+    let createdAuthors = await Author.bulkCreate(authors);
 
     createdAuthors.forEach((author) => {
-        book.create({
+        Book.create({
             title: faker.company.catchPhrase(),
             authorId: author.get().id
         });
