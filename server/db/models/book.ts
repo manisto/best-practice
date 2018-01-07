@@ -1,14 +1,14 @@
 import * as Sequelize from 'sequelize';
 import { BookAttributes } from '../../../models';
-import { Author } from './';
+import { Associable } from './index';
 
 export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes) => {
-    let Book = sequelize.define<BookInstance, BookAttributes>('book', {
+    let Book: BookModel = sequelize.define<BookInstance, BookAttributes>('book', {
         title: types.STRING,
     });
 
-    (Book as any).associate = () => {
-        Book.belongsTo(Author);
+    Book.associate = (models) => {
+        Book.belongsTo(models.Author);
     }
 
     return Book;
@@ -16,4 +16,4 @@ export default (sequelize: Sequelize.Sequelize, types: Sequelize.DataTypes) => {
 
 interface BookInstance extends Sequelize.Instance<BookAttributes> {}
 
-export interface BookModel extends Sequelize.Model<BookInstance, BookAttributes>{}
+export interface BookModel extends Associable<BookInstance, BookAttributes> {}
