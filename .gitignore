@@ -2,3 +2,5 @@ node_modules/
 */**/*.js
 */**/*.js.map
 *.sqlite
+!server/db/migrations/*.js
+!server/db/seeders/*.js

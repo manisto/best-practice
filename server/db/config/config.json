@@ -1,0 +1,7 @@
+{
+    "development": {
+        "operatorsAliases": false,
+        "dialect": "sqlite",
+        "storage": "./best-practice.sqlite"
+    }
+}
