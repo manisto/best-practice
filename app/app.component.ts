@@ -1,5 +1,5 @@
-import template from './app.html';
+import { appPath } from './app.path';
 
 export let AppComponent: ng.IComponentOptions = {
-    template
+    templateUrl: `${appPath}/app.html`
 };

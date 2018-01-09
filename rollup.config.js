@@ -1,6 +1,5 @@
 let typescript = require('typescript');
 let typescriptPlugin = require('rollup-plugin-typescript');
-let htmlPlugin = require('rollup-plugin-html');
 
 module.exports = {
     sourcemap: true,
@@ -11,9 +10,6 @@ module.exports = {
         name: 'bestPractice'
     },
     plugins: [
-        htmlPlugin({
-            include: '**/*.html'
-        }),
         typescriptPlugin({
             typescript: typescript
         })
