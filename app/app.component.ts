@@ -1,5 +1,8 @@
 import { appPath } from './app.path';
+import { Component } from '@angular/core';
 
-export let AppComponent: ng.IComponentOptions = {
+@Component({
+    selector: 'app',
     templateUrl: `${appPath}/app.html`
-};
+})
+export class AppComponent {}

@@ -1,19 +1,16 @@
 import * as models from '../../models';
 import { authorsPath } from './authors.path';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
-class AuthorListController {
-    private authors: models.AuthorAttributes[];
+@Component({
+    selector: 'author-list',
+    templateUrl: `${authorsPath}/author-list.html`
+})
+export class AuthorListComponent implements OnChanges {
+    @Input() authors: models.AuthorAttributes[];
 
-    $onChanges(changes: ng.IOnChangesObject): void {
+    ngOnChanges(changes: SimpleChanges): void {
         if (changes['authors']) {
         }
     }
 }
-
-export let AuthorListComponent: ng.IComponentOptions = {
-    templateUrl: `${authorsPath}/author-list.html`,
-    controller: AuthorListController,
-    bindings: {
-        authors: '<'
-    }
-};

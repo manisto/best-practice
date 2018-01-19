@@ -1,11 +1,18 @@
 import { appConfig } from './app.config';
 import { AppComponent } from './app.component';
-import { authorsModule } from './authors/authors.module';
+import { AuthorsModule } from './authors/authors.module';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-export let appModule = angular.module('app', [
-    'ui.router',
-    authorsModule.name
-]);
-
-appModule.config(appConfig);
-appModule.component('app', AppComponent);
+@NgModule({
+    imports: [
+        BrowserModule,
+        CommonModule
+    ],
+    providers: [],
+    declarations: [AppComponent],
+    exports: [AppComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule {}

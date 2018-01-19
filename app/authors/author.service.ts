@@ -1,18 +1,16 @@
 import * as models from '../../models';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class AuthorService {
-    static $inject = ['$http'];
-    private $http: ng.IHttpService;
+    constructor(private http: HttpClient) {}
 
-    constructor($http: ng.IHttpService) {
-        this.$http = $http;
+    listAuthors(): Promise<models.AuthorAttributes[]> {
+        return this.http.get<models.AuthorAttributes[]>('/api/authors').toPromise();
     }
 
-    listAuthors(): ng.IPromise<models.AuthorAttributes[]> {
-        return this.$http.get<models.AuthorAttributes[]>('/api/authors').then(response => response.data);
-    }
-
-    getAuthor(id: number): ng.IPromise<models.AuthorAttributes> {
-        return this.$http.get<models.AuthorAttributes>(`/api/authors/${id}`).then(Response => Response.data);
+    getAuthor(id: number): Promise<models.AuthorAttributes> {
+        return this.http.get<models.AuthorAttributes>(`/api/authors/${id}`).toPromise();
     }
 }

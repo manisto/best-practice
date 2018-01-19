@@ -1,18 +1,16 @@
 import { AuthorService } from './author.service';
 import * as models from '../../models';
 import { authorsPath } from './authors.path';
+import { Component, Injectable } from '@angular/core';
 
-class AuthorsContainerController {
-    static $inject = ['authorService'];
-
+@Component({
+    selector: 'authors-container',
+    templateUrl: `${authorsPath}/authors-container.html`
+})
+export class AuthorsContainerComponent {
     constructor(private authorService: AuthorService) {}
 
     saveAuthor(author: models.AuthorAttributes) {
         console.log(author);
     }
 }
-
-export let AuthorsContainerComponent: ng.IComponentOptions = {
-    templateUrl: `${authorsPath}/authors-container.html`,
-    controller: AuthorsContainerController
-};

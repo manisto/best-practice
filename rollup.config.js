@@ -1,5 +1,7 @@
 let typescript = require('typescript');
 let typescriptPlugin = require('rollup-plugin-typescript');
+let commonjs = require('rollup-plugin-commonjs');
+let resolve = require('rollup-plugin-node-resolve');
 
 module.exports = {
     sourcemap: true,
@@ -10,8 +12,10 @@ module.exports = {
         name: 'bestPractice'
     },
     plugins: [
+        commonjs(),
         typescriptPlugin({
             typescript: typescript
-        })
+        }),
+        resolve()
     ]
 };
