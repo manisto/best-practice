@@ -1,6 +1,12 @@
-import * as uiRouter from '@uirouter/angularjs';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-export function appRoutes($stateProvider: uiRouter.StateProvider) {
-}
+const appRoutes: Routes = [];
 
-appRoutes.$inject = ['$stateProvider'];
+@NgModule({
+    imports: [
+        RouterModule.forRoot(appRoutes)
+    ],
+    exports: [RouterModule]
+})
+export class AppRoutingModule {}

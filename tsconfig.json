@@ -2,7 +2,7 @@
     "compilerOptions": {
         "noImplicitAny": true,
         "module": "commonjs",
-        "target": "esnext",
+        "target": "es5",
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -10,6 +10,6 @@
         "inlineSources": true
     },
     "include": [
-        "server/**/*.ts"
+        "app/**/*.ts"
     ]
 }
