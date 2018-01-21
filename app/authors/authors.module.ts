@@ -5,13 +5,17 @@ import { AuthorListComponent } from './author-list.component';
 import { AuthorEditComponent } from './author-edit.component';
 import { AuthorService } from './author.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthorListResolver } from './author-list-resolver.service';
 
 @NgModule({
     imports: [
         BrowserModule,
         AuthorsRoutingModule,
     ],
-    providers: [AuthorService],
+    providers: [
+        AuthorService,
+        AuthorListResolver,
+    ],
     declarations: [
         AuthorListComponent,
         AuthorEditComponent,

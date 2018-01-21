@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="author in $ctrl.authors track by author.id">
+        <tr *ngFor="let author of authors">
             <td>{{author.id}}</td>
             <td>{{author.name}}</td>
             <td>
