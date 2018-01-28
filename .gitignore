@@ -4,3 +4,4 @@ node_modules/
 *.sqlite
 !server/db/migrations/*.js
 !server/db/seeders/*.js
+client/dist
