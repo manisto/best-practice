@@ -1,5 +1,4 @@
 import * as models from "../../../models";
-import { authorsPath } from "./authors.path";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({

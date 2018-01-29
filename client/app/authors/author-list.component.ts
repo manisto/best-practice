@@ -1,4 +1,3 @@
-import { authorsPath } from "./authors.path";
 import {
   Component,
   Input,
@@ -13,7 +12,7 @@ import { AuthorAttributes } from "../../../models/AuthorAttributes";
 
 @Component({
   selector: "author-list",
-  templateUrl: `./author-list.html`
+  templateUrl: "./author-list.html"
 })
 export class AuthorListComponent implements OnChanges, OnInit {
   constructor(@Inject(ActivatedRoute) private route: ActivatedRoute) {}
