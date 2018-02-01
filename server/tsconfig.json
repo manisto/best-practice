@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "sourceMap": true,
+    "inlineSources": true
+  },
+  "include": ["**/*.ts"]
+}

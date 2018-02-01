@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "tsc -p server",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
