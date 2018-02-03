@@ -1,7 +1,11 @@
 <div class="container">
     <ul class="nav nav-tabs">
-        <li routerLinkActive="active"><a routerLink="/authors">Authors</a></li>
-        <li ui-sref-active="{ 'active': 'books' }"><a ui-sref="books.list">Books</a></li>
+        <li uiSrefActive="active">
+            <a uiSref="authors.list">Authors</a>
+        </li>
+        <li uiSrefActive="active">
+            <a uiSref="books.list">Books</a>
+        </li>
     </ul>
-    <router-outlet></router-outlet>
+    <ui-view></ui-view>
 </div>

@@ -11,7 +11,7 @@
             <td>{{author.id}}</td>
             <td>{{author.name}}</td>
             <td>
-                <button type="button" class="btn btn-primary" ui-sref="authors.edit({ id: author.id })">
+                <button type="button" class="btn btn-primary" uiSref="authors.edit" [uiParams]="{ id: author.id }">
                     <i class="fa fa-pencil fa-fw"></i>
                     Edit
                 </button>

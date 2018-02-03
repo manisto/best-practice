@@ -1,17 +1,18 @@
 import * as models from "../../../models";
 import { HttpClient } from "@angular/common/http";
-import { Injectable, Inject } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class AuthorService {
-  constructor(@Inject(HttpClient) private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  listAuthors(): Observable<models.AuthorAttributes[]> {
-    return this.http.get<models.AuthorAttributes[]>("/api/authors");
+  listAuthors(): Promise<models.AuthorAttributes[]> {
+    return this.http.get<models.AuthorAttributes[]>("/api/authors").toPromise();
   }
 
-  getAuthor(id: number): Observable<models.AuthorAttributes> {
-    return this.http.get<models.AuthorAttributes>(`/api/authors/${id}`);
+  getAuthor(id: number): Promise<models.AuthorAttributes> {
+    return this.http
+      .get<models.AuthorAttributes>(`/api/authors/${id}`)
+      .toPromise();
   }
 }

@@ -1,39 +1,61 @@
 import { NgModule, Injectable, Inject } from "@angular/core";
 import {
-  RouterModule,
-  Routes,
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot
-} from "@angular/router";
+  Ng2StateDeclaration,
+  UIRouterModule,
+  Transition
+} from "@uirouter/angular";
 import { AuthorService } from "./author.service";
 import { AuthorsContainerComponent } from "./authors-container.component";
 import { AuthorListComponent } from "./author-list.component";
 import { AuthorEditComponent } from "./author-edit.component";
 import { AuthorAttributes } from "../../../models/AuthorAttributes";
-import { Observable } from "rxjs/Observable";
-import { AuthorListResolver } from "./author-list-resolver.service";
 
-const authorsRoutes: Routes = [
+const authorStates: Ng2StateDeclaration[] = [
   {
-    path: "authors",
-    component: AuthorsContainerComponent,
-    children: [
+    name: "authors",
+    url: "/authors",
+    abstract: true,
+    component: AuthorsContainerComponent
+  },
+  {
+    name: "authors.list",
+    url: "",
+    component: AuthorListComponent,
+    resolve: [
       {
-        path: "",
-        component: AuthorListComponent,
-        resolve: { authors: AuthorListResolver }
-      },
-      { path: ":id", component: AuthorEditComponent }
+        token: "authors",
+        deps: [AuthorService],
+        resolveFn: resolveAuthorList
+      }
+    ]
+  },
+  {
+    name: "authors.edit",
+    url: "/:id",
+    component: AuthorEditComponent,
+    resolve: [
+      {
+        token: "author",
+        deps: [AuthorService, Transition],
+        resolveFn: resolveAuthor
+      }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(authorsRoutes)],
-  exports: [RouterModule]
+  imports: [UIRouterModule.forChild({ states: authorStates })],
+  exports: [UIRouterModule]
 })
 export class AuthorsRoutingModule {}
 
-// let resolveAuthor = (authorService: AuthorService, $stateParams: uiRouter.StateParams) => authorService.getAuthor($stateParams['id']);
-// resolveAuthor.$inject = ['authorService', '$stateParams'];
+export function resolveAuthorList(authorService: AuthorService) {
+  return authorService.listAuthors();
+}
+
+export function resolveAuthor(
+  authorService: AuthorService,
+  $transition$: Transition
+) {
+  return authorService.getAuthor($transition$.params().id);
+}
