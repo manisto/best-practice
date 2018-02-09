@@ -1,5 +1,6 @@
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home.component";
 import { AuthorsModule } from "./authors/authors.module";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
@@ -15,7 +16,7 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule
   ],
   providers: [],
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   exports: [AppComponent],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,6 @@ import {
   Transition
 } from "@uirouter/angular";
 import { AuthorService } from "./author.service";
-import { AuthorsContainerComponent } from "./authors-container.component";
 import { AuthorListComponent } from "./author-list.component";
 import { AuthorEditComponent } from "./author-edit.component";
 import { AuthorAttributes } from "../../../models/AuthorAttributes";
@@ -14,12 +13,6 @@ const authorStates: Ng2StateDeclaration[] = [
   {
     name: "authors",
     url: "/authors",
-    abstract: true,
-    component: AuthorsContainerComponent
-  },
-  {
-    name: "authors.list",
-    url: "",
     component: AuthorListComponent,
     resolve: [
       {
